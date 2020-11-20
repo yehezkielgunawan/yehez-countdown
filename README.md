@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). <br>
+I used [React Semantic UI](https://react.semantic-ui.com/) for the styling and components.
 
 ## Available Scripts
 
