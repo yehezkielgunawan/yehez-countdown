@@ -3,7 +3,7 @@ import { Button, Container, Divider, Header, Segment } from "semantic-ui-react";
 import "./App.css";
 
 function App() {
-  const [minutes, setMinutes] = useState(3);
+  const [minutes, setMinutes] = useState(5);
   const [second, setSecond] = useState(0);
 
   useEffect(() => {
