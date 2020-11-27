@@ -8,6 +8,13 @@ function App() {
   const [flagPause, setFlagPause] = useState(false);
   const [flagStart, setFlagStart] = useState(false);
 
+  const resetCountdown = () => {
+    setMinutes(0);
+    setSecond(0);
+    setFlagPause(false);
+    setFlagStart(false);
+  }
+
   const changeFlagPause = () => {
     if (flagPause === false) {
       return setFlagPause(true);
@@ -95,10 +102,10 @@ function App() {
                 </h3>
               </Segment>
               <Segment>
-                <Button color="green" onClick={changeFlagPause}>
+                <Button color="teal" onClick={changeFlagPause}>
                   Resume
                 </Button>
-                <Button color="black">Reset</Button>
+                <Button color="black" onClick={resetCountdown}>Reset</Button>
               </Segment>
             </Segment.Group>
           </Container>
@@ -107,7 +114,7 @@ function App() {
     }
     return (
       <div className="App">
-        <Container textAlign="center" className="container">
+        <Container textAlign="center" className="container" fluid>
           <Segment.Group>
             <Segment>
               <Header size="huge">Countdown Timer</Header>
@@ -127,7 +134,7 @@ function App() {
               <Button color="yellow" onClick={changeFlagPause}>
                 Pause
               </Button>
-              <Button color="black">Reset</Button>
+              <Button color="black" onClick={resetCountdown}>Reset</Button>
             </Segment>
           </Segment.Group>
         </Container>
@@ -158,7 +165,6 @@ function App() {
             <Button color="green" onClick={startCountdown}>
               Start
             </Button>
-            <Button color="black">Reset</Button>
           </Segment>
         </Segment.Group>
       </Container>
