@@ -88,7 +88,7 @@ function App() {
     if (flagPause === false) {
       return (
         <div className="App">
-          <Container textAlign="center" className="container">
+          <Container textAlign="center">
             <Segment.Group>
               <Segment inverted>
                 <Header size="huge">Countdown Timer</Header>
@@ -120,7 +120,7 @@ function App() {
     }
     return (
       <div className="App">
-        <Container textAlign="center" className="container">
+        <Container textAlign="center">
           <Segment.Group>
             <Segment inverted>
               <Header size="huge">Countdown Timer</Header>
@@ -153,7 +153,7 @@ function App() {
     if (flagFinish === true) {
       return (
         <div className="App">
-          <Container textAlign="center" className="container">
+          <Container textAlign="center">
             <Segment.Group>
               <Segment inverted>
                 <Header size="huge">Countdown Timer</Header>
@@ -182,7 +182,7 @@ function App() {
     }
     return (
       <div className="App">
-        <Container textAlign="center" className="container">
+        <Container textAlign="center">
           <Segment.Group>
             <Segment inverted>
               <Header size="huge">Countdown Timer</Header>
