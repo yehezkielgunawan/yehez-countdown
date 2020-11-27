@@ -13,7 +13,7 @@ function App() {
     setSecond(0);
     setFlagPause(false);
     setFlagStart(false);
-  }
+  };
 
   const changeFlagPause = () => {
     if (flagPause === false) {
@@ -87,7 +87,7 @@ function App() {
         <div className="App">
           <Container textAlign="center" className="container">
             <Segment.Group>
-              <Segment>
+              <Segment inverted>
                 <Header size="huge">Countdown Timer</Header>
               </Segment>
               <Segment>
@@ -95,17 +95,20 @@ function App() {
                   <Header size="medium">Time Remaining</Header>
                 </h3>
                 <h3>
-                  {minutes} : {second < 10 ? `0${second}` : second}
+                  {minutes < 10 ? `0${minutes}` : minutes} :{" "}
+                  {second < 10 ? `0${second}` : second}
                 </h3>
                 <h3>
                   <Icon name="clock outline"></Icon>
                 </h3>
               </Segment>
-              <Segment>
+              <Segment inverted>
                 <Button color="teal" onClick={changeFlagPause}>
                   Resume
                 </Button>
-                <Button color="black" onClick={resetCountdown}>Reset</Button>
+                <Button color="grey" onClick={resetCountdown}>
+                  Reset
+                </Button>
               </Segment>
             </Segment.Group>
           </Container>
@@ -116,7 +119,7 @@ function App() {
       <div className="App">
         <Container textAlign="center" className="container">
           <Segment.Group>
-            <Segment>
+            <Segment inverted>
               <Header size="huge">Countdown Timer</Header>
             </Segment>
             <Segment>
@@ -124,17 +127,20 @@ function App() {
                 <Header size="medium">Time Remaining</Header>
               </h3>
               <h3>
-                {minutes} : {second < 10 ? `0${second}` : second}
+                {minutes < 10 ? `0${minutes}` : minutes} :{" "}
+                {second < 10 ? `0${second}` : second}
               </h3>
               <h3>
                 <Icon name="clock outline"></Icon>
               </h3>
             </Segment>
-            <Segment>
+            <Segment inverted>
               <Button color="yellow" onClick={changeFlagPause}>
                 Pause
               </Button>
-              <Button color="black" onClick={resetCountdown}>Reset</Button>
+              <Button color="grey" onClick={resetCountdown}>
+                Reset
+              </Button>
             </Segment>
           </Segment.Group>
         </Container>
@@ -145,7 +151,7 @@ function App() {
     <div className="App">
       <Container textAlign="center" className="container">
         <Segment.Group>
-          <Segment>
+          <Segment inverted>
             <Header size="huge">Countdown Timer</Header>
           </Segment>
           <Segment>
@@ -154,14 +160,15 @@ function App() {
               <Icon name="angle up" onClick={plusSecond}></Icon>
             </h3>
             <h3>
-              {minutes} : {second < 10 ? `0${second}` : second}
+              {minutes < 10 ? `0${minutes}` : minutes} :{" "}
+              {second < 10 ? `0${second}` : second}
             </h3>
             <h3>
               <Icon name="angle down" onClick={minusMinutes}></Icon>
               <Icon name="angle down" onClick={minusSeconds}></Icon>
             </h3>
           </Segment>
-          <Segment>
+          <Segment inverted>
             <Button color="green" onClick={startCountdown}>
               Start
             </Button>
