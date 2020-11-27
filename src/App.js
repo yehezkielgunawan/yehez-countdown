@@ -17,13 +17,6 @@ function App() {
     setFlagFinish(false);
   };
 
-  const changeFlagFinish = () => {
-    if (flagFinish === false) {
-      return setFlagFinish(true);
-    }
-    return setFlagFinish(false);
-  };
-
   const changeFlagPause = () => {
     if (flagPause === false) {
       return setFlagPause(true);
@@ -178,8 +171,8 @@ function App() {
                 </h3>
               </Segment>
               <Segment inverted>
-                <Button color="green" onClick={startCountdown}>
-                  Start Again
+                <Button color="green" onClick={resetCountdown}>
+                  START AGAIN
                 </Button>
               </Segment>
             </Segment.Group>
