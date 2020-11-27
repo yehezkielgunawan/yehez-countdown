@@ -7,3 +7,8 @@
   transform: translate(-50%, -50%);
 }
 
+
+html, body{
+  background-color: grey !important;
+}
+

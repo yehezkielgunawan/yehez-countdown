@@ -114,7 +114,7 @@ function App() {
     }
     return (
       <div className="App">
-        <Container textAlign="center" className="container" fluid>
+        <Container textAlign="center" className="container">
           <Segment.Group>
             <Segment>
               <Header size="huge">Countdown Timer</Header>
