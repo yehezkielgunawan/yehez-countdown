@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Segment } from "semantic-ui-react";
+import { Container, Header, Segment } from "semantic-ui-react";
 
 import CountdownBodyHeader from "./components/CoundownBodyHeader";
 import TimeWrapper from "./components/TimeWrapper";
