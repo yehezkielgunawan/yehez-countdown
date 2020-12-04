@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Button, Container, Header, Icon, Segment } from "semantic-ui-react";
+import { Container, Header, Segment } from "semantic-ui-react";
+
+import CountdownBodyHeader from "./components/CoundownBodyHeader";
+import TimeWrapper from "./components/TimeWrapper";
+import CountdownBodyFooter from "./components/CountdownBodyFooter";
+import CountdownAction from "./components/CountdownAction";
+
 import "./App.css";
 
 function App() {
@@ -84,133 +90,60 @@ function App() {
     }
   });
 
-  if (flagStart === true) {
-    if (flagPause === false) {
-      return (
-        <div className="App">
-          <Container textAlign="center">
-            <Segment.Group>
-              <Segment inverted>
-                <Header size="huge">Countdown Timer</Header>
-              </Segment>
-              <Segment>
-                <h3>
-                  <Header size="medium">Time Remaining</Header>
-                </h3>
-                <h3>
-                  {minutes < 10 ? `0${minutes}` : minutes} :{" "}
-                  {second < 10 ? `0${second}` : second}
-                </h3>
-                <h3>
-                  <Icon name="clock outline"></Icon>
-                </h3>
-              </Segment>
-              <Segment inverted>
-                <Button color="teal" onClick={changeFlagPause}>
-                  Resume
-                </Button>
-                <Button color="grey" onClick={resetCountdown}>
-                  Reset
-                </Button>
-              </Segment>
-            </Segment.Group>
-          </Container>
-        </div>
-      );
-    }
-    return (
-      <div className="App">
-        <Container textAlign="center">
-          <Segment.Group>
-            <Segment inverted>
-              <Header size="huge">Countdown Timer</Header>
-            </Segment>
-            <Segment>
-              <h3>
-                <Header size="medium">Time Remaining</Header>
-              </h3>
-              <h3>
-                {minutes < 10 ? `0${minutes}` : minutes} :{" "}
-                {second < 10 ? `0${second}` : second}
-              </h3>
-              <h3>
-                <Icon name="clock outline"></Icon>
-              </h3>
-            </Segment>
-            <Segment inverted>
-              <Button color="yellow" onClick={changeFlagPause}>
-                Pause
-              </Button>
-              <Button color="grey" onClick={resetCountdown}>
-                Reset
-              </Button>
-            </Segment>
-          </Segment.Group>
-        </Container>
-      </div>
-    );
-  } else {
-    if (flagFinish === true) {
-      return (
-        <div className="App">
-          <Container textAlign="center">
-            <Segment.Group>
-              <Segment inverted>
-                <Header size="huge">Countdown Timer</Header>
-              </Segment>
-              <Segment>
-                <h3>
-                  <Header size="medium">BOOMMM!!!!</Header>
-                </h3>
-                <h3>
-                  {minutes < 10 ? `0${minutes}` : minutes} :{" "}
-                  {second < 10 ? `0${second}` : second}
-                </h3>
-                <h3>
-                  <Icon name="clock outline"></Icon>
-                </h3>
-              </Segment>
-              <Segment inverted>
-                <Button color="green" onClick={resetCountdown}>
-                  START AGAIN
-                </Button>
-              </Segment>
-            </Segment.Group>
-          </Container>
-        </div>
-      );
-    }
-    return (
-      <div className="App">
-        <Container textAlign="center">
-          <Segment.Group>
-            <Segment inverted>
-              <Header size="huge">Countdown Timer</Header>
-            </Segment>
-            <Segment>
-              <h3>
-                <Icon name="angle up" onClick={plusMinutes}></Icon>{" "}
-                <Icon name="angle up" onClick={plusSecond}></Icon>
-              </h3>
-              <h3>
-                {minutes < 10 ? `0${minutes}` : minutes} :{" "}
-                {second < 10 ? `0${second}` : second}
-              </h3>
-              <h3>
-                <Icon name="angle down" onClick={minusMinutes}></Icon>{" "}
-                <Icon name="angle down" onClick={minusSeconds}></Icon>
-              </h3>
-            </Segment>
-            <Segment inverted>
-              <Button color="green" onClick={startCountdown}>
-                Start
-              </Button>
-            </Segment>
-          </Segment.Group>
-        </Container>
-      </div>
-    );
-  }
+  const timeWrapperProps = {
+    minutes,
+    second,
+  };
+
+  const countdownBodyHeaderProps = {
+    flagStart,
+    flagFinish,
+
+    plusMinutes,
+    plusSecond,
+  };
+
+  const countdownBodyFooterProps = {
+    flagStart,
+    flagFinish,
+
+    minusMinutes,
+    minusSeconds,
+  };
+
+  const countdownActionProps = {
+    flagStart,
+    flagPause,
+    flagFinish,
+
+    changeFlagPause,
+    resetCountdown,
+    startCountdown,
+  };
+
+  return (
+    <div className="App">
+      <Container textAlign="center">
+        <Segment.Group>
+          <Segment inverted>
+            <Header size="huge">Countdown Timer</Header>
+          </Segment>
+
+          <Segment>
+            <CountdownBodyHeader {...countdownBodyHeaderProps} />
+
+            <TimeWrapper {...timeWrapperProps} />
+
+            <CountdownBodyFooter {...countdownBodyFooterProps} />
+          </Segment>
+
+          <Segment inverted>
+            <CountdownAction {...countdownActionProps} />
+          </Segment>
+        </Segment.Group>
+      </Container>
+    </div>
+  );
 }
 
 export default App;
