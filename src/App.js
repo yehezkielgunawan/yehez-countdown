@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Container, Segment } from "semantic-ui-react";
 
-import CountdownHeader from "./components/CountdownHeader";
-import CountdownBody from "./components/CountdownBody";
+import CountdownBodyHeader from "./components/CoundownBodyHeader";
+import TimeWrapper from "./components/TimeWrapper";
+import CountdownBodyFooter from "./components/CountdownBodyFooter";
+import CountdownAction from "./components/CountdownAction";
 
 import "./App.css";
 
@@ -88,19 +90,34 @@ function App() {
     }
   });
 
-  const countdownBodyProps = {
+  const timeWrapperProps = {
+    minutes,
+    second,
+  };
+
+  const countdownBodyHeaderProps = {
+    flagStart,
+    flagFinish,
+
+    plusMinutes,
+    plusSecond,
+  };
+
+  const countdownBodyFooterProps = {
+    flagStart,
+    flagFinish,
+
+    minusMinutes,
+    minusSeconds,
+  };
+
+  const countdownActionProps = {
     flagStart,
     flagPause,
     flagFinish,
-    minutes,
-    second,
 
     changeFlagPause,
     resetCountdown,
-    plusMinutes,
-    plusSecond,
-    minusMinutes,
-    minusSeconds,
     startCountdown,
   };
 
@@ -108,9 +125,21 @@ function App() {
     <div className="App">
       <Container textAlign="center">
         <Segment.Group>
-          <CountdownHeader />
+          <Segment inverted>
+            <Header size="huge">Countdown Timer</Header>
+          </Segment>
 
-          <CountdownBody {...countdownBodyProps} />
+          <Segment>
+            <CountdownBodyHeader {...countdownBodyHeaderProps} />
+
+            <TimeWrapper {...timeWrapperProps} />
+
+            <CountdownBodyFooter {...countdownBodyFooterProps} />
+          </Segment>
+
+          <Segment inverted>
+            <CountdownAction {...countdownActionProps} />
+          </Segment>
         </Segment.Group>
       </Container>
     </div>
